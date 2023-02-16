@@ -11,8 +11,8 @@ online workshops.
 
 {% endcomment %}
 
-{% assign begin_address = page.address1 | slice: 0, 4 | downcase  %}
-{% if page.address1 == "online" or begin_address contains "http" %}
+{% assign begin_address = page.address | slice: 0, 4 | downcase  %}
+{% if page.address == "online" or begin_address contains "http" %}
 {% assign online = " (online)" %}
 {% else %}
 {% assign online = "" %}
@@ -28,8 +28,7 @@ online workshops.
     <meta name="humandate" content="{{page.humandate}}" />
     <meta name="country" content="{{page.country}}" />
     <meta name="venue" content="{{page.venue}}{{ online }}" />
-    <meta name="address" content="{{page.address1}}" />
-    <meta name="address1" content="{{page.address1}}" />
+    <meta name="address" content="{{page.address}}" />
     <meta name="address2" content="{{page.address2}}" />
     <meta name="latlng" content="{{page.latitude1}},{{page.longitude1}}" />
     <meta name="latlng1" content="{{page.latitude1}},{{page.longitude1}}" />
