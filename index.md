@@ -135,7 +135,7 @@ address.
 {% else %}
 {% assign online = "false" %}
 {% endif %}
-{% if page.latitude and page.longitude and online == "false" %}
+{% if page.latitude1 and page.longitude1 and online == "false" %}
 <p id="where">
   <strong>Where (7 March):</strong>
   {{page.address1}} 
