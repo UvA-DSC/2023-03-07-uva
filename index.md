@@ -18,6 +18,8 @@ humandate2: "March 8-10, 2023"    # the human-readable date the workshop is at t
 humantime: "9:30 am - 2:00 pm CEST"    # human-readable times for the workshop e.g., "9:00 am - 4:30 pm CEST (7:00 am - 2:30 pm UTC)"
 startdate: 2023-03-07      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
 enddate: 2023-03-10        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
+enddate1: 2023-03-07        # machine-readable end date for the first part of the workshop in YYYY-MM-DD
+startdate2: 2023-03-08        # machine-readable start date for the second part of the workshop in YYYY-MM-DD
 instructor: ["Tijs Bliek", "Fatemeh Karimi Nejadasl", "Giordano Lipari", "Max Paulus"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
 helper: ["Tijs Bliek", "Fatemeh Karimi Nejadasl", "Eva Lekkerkerker", "Giordano Lipari", "Rutger Nijland", "Max Paulus", "Elisa Rodenburg", "Stephanie van de Sandt", "Meron Vermaas"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
 email: ["r.j.nijland@student.vu.nl"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
@@ -148,7 +150,7 @@ address.
   <br>
   <strong>When:</strong>
   {{page.humandate1}}.
-  {% include workshop_calendar.html %}
+  {% include workshop_calendar1.html %}
 </p>
 <p id="wherewhen2">
   <strong>Where:</strong>
@@ -160,7 +162,7 @@ address.
   <br>
   <strong>When:</strong>
   {{page.humandate2}}.
-  {% include workshop_calendar.html %}
+  {% include workshop_calendar2.html %}
 </p>
 {% elsif online == "true_public" %}
 <p id="where">
