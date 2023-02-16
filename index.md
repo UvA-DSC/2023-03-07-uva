@@ -4,12 +4,14 @@ layout: workshop      # DON'T CHANGE THIS.
 # online workshop) are available at
 # https://carpentries.github.io/workshop-template/customization/index.html
 venue: "University of Amsterdam |  Vrije Universiteit Amsterdam"        # brief name of the institution that hosts the workshop without address (e.g., "Euphoric State University")
-address1: "UB C0.01 (Potgieterzaal) University Library, Singel 421-427, 1012 WP Amsterdam"      # full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
-address2: "second address"      # full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
+address1: "REC BK.01, Roeterseiland building B, Nieuwe Achtergracht 166, 1018 WV Amsterdam"      # full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
+address2: "UB C0.01 (Potgieterzaal) University Library, Singel 421-427, 1012 WP Amsterdam"      # full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
 country: "nl"      # lowercase two-letter ISO country code such as "fr" (see https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes) for the institution that hosts the workshop
 language: "en"     # lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for the workshop
-latitude: "52.367680"        # decimal latitude of workshop venue (use https://www.latlong.net/)
-longitude: "4.889710"       # decimal longitude of the workshop venue (use https://www.latlong.net)
+latitude1: "52.363210"        # decimal latitude of workshop venue (use https://www.latlong.net/)
+longitude1: "4.912590"       # decimal longitude of the workshop venue (use https://www.latlong.net)
+latitude2: "52.367680"        # decimal latitude of workshop venue (use https://www.latlong.net/)
+longitude2: "4.889710"       # decimal longitude of the workshop venue (use https://www.latlong.net)
 humandate: "March 7-10, 2023"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
 humantime: "9:30 am - 2:00 pm CEST"    # human-readable times for the workshop e.g., "9:00 am - 4:30 pm CEST (7:00 am - 2:30 pm UTC)"
 startdate: 2023-03-07      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
@@ -135,13 +137,19 @@ address.
 {% endif %}
 {% if page.latitude and page.longitude and online == "false" %}
 <p id="where">
-  <strong>Where:</strong>
-  On days A and B {{page.address1}} 
+  <strong>Where (7 March):</strong>
+  {{page.address1}} 
   Get directions with
-  <a href="//www.openstreetmap.org/?mlat={{page.latitude}}&mlon={{page.longitude}}&zoom=16">OpenStreetMap</a>
+  <a href="//www.openstreetmap.org/?mlat={{page.latitude1}}&mlon={{page.longitude1}}&zoom=16">OpenStreetMap</a>
   or
-  <a href="//maps.google.com/maps?q={{page.latitude}},{{page.longitude}}">Google Maps</a>.
-  On days C and D {{page.address2}} 
+  <a href="//maps.google.com/maps?q={{page.latitude1}},{{page.longitude1}}">Google Maps</a>.
+  <br>
+  <strong>Where (8,9,10 March):</strong>
+  {{page.address2}} 
+  Get directions with
+  <a href="//www.openstreetmap.org/?mlat={{page.latitude2}}&mlon={{page.longitude2}}&zoom=16">OpenStreetMap</a>
+  or
+  <a href="//maps.google.com/maps?q={{page.latitude2}},{{page.longitude2}}">Google Maps</a>.
 </p>
 {% elsif online == "true_public" %}
 <p id="where">
