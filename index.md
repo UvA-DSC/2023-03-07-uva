@@ -4,7 +4,7 @@ layout: workshop      # DON'T CHANGE THIS.
 # online workshop) are available at
 # https://carpentries.github.io/workshop-template/customization/index.html
 venue: "University of Amsterdam |  Vrije Universiteit Amsterdam"        # brief name of the institution that hosts the workshop without address (e.g., "Euphoric State University")
-address: "UB C0.01 (Potgieterzaal) University Library, Singel 421-427, 1012 WP Amsterdam"      # full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
+address1: "UB C0.01 (Potgieterzaal) University Library, Singel 421-427, 1012 WP Amsterdam"      # full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
 country: "nl"      # lowercase two-letter ISO country code such as "fr" (see https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes) for the institution that hosts the workshop
 language: "en"     # lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for the workshop
 latitude: "52.367680"        # decimal latitude of workshop venue (use https://www.latlong.net/)
@@ -124,8 +124,8 @@ if the latitude and longitude of the workshop have been set.  You
 can use https://www.latlong.net/ to find the lat/long of an
 address.
 {% endcomment %}
-{% assign begin_address = page.address | slice: 0, 4 | downcase  %}
-{% if page.address == "online" %}
+{% assign begin_address = page.address1 | slice: 0, 4 | downcase  %}
+{% if page.address1 == "online" %}
 {% assign online = "true_private" %}
 {% elsif begin_address contains "http" %}
 {% assign online = "true_public" %}
@@ -135,7 +135,7 @@ address.
 {% if page.latitude and page.longitude and online == "false" %}
 <p id="where">
   <strong>Where:</strong>
-  {{page.address}}.
+  {{page.address1}}.
   Get directions with
   <a href="//www.openstreetmap.org/?mlat={{page.latitude}}&mlon={{page.longitude}}&zoom=16">OpenStreetMap</a>
   or
@@ -144,7 +144,7 @@ address.
 {% elsif online == "true_public" %}
 <p id="where">
   <strong>Where:</strong>
-  online at <a href="{{page.address}}">{{page.address}}</a>.
+  online at <a href="{{page.address1}}">{{page.address1}}</a>.
   If you need a password or other information to access the training,
   the instructor will pass it on to you before the workshop.
 </p>
