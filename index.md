@@ -4,17 +4,24 @@ layout: workshop      # DON'T CHANGE THIS.
 # online workshop) are available at
 # https://carpentries.github.io/workshop-template/customization/index.html
 venue: "University of Amsterdam |  Vrije Universiteit Amsterdam"        # brief name of the institution that hosts the workshop without address (e.g., "Euphoric State University")
-address: "UB C0.01 (Potgieterzaal) University Library, Singel 421-427, 1012 WP Amsterdam"      # full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
+address: "REC BK.01, Roeterseiland building B, Nieuwe Achtergracht 166, 1018 WV Amsterdam"      # full street address of first location (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
+address2: "UB C0.01 (Potgieterzaal), University Library, Singel 421-427, 1012 WP Amsterdam"      # full street address of second location (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
 country: "nl"      # lowercase two-letter ISO country code such as "fr" (see https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes) for the institution that hosts the workshop
 language: "en"     # lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for the workshop
-latitude: "52.367680"        # decimal latitude of workshop venue (use https://www.latlong.net/)
-longitude: "4.889710"       # decimal longitude of the workshop venue (use https://www.latlong.net)
+latitude: "52.363210"        # decimal latitude of workshop venue (use https://www.latlong.net/)
+longitude: "4.912590"       # decimal longitude of the workshop venue (use https://www.latlong.net)
+latitude2: "52.367680"        # decimal latitude of the secondworkshop venue (use https://www.latlong.net/)
+longitude2: "4.889710"       # decimal longitude of the second workshop venue (use https://www.latlong.net)
 humandate: "March 7-10, 2023"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
+humandate1: "March 7, 2023"    # the human-readable date the workshop is at the first location (e.g., "Feb 17, 2020")
+humandate2: "March 8-10, 2023"    # the human-readable date the workshop is at the second location (e.g., "Feb 17-18, 2020")
 humantime: "9:30 am - 2:00 pm CEST"    # human-readable times for the workshop e.g., "9:00 am - 4:30 pm CEST (7:00 am - 2:30 pm UTC)"
 startdate: 2023-03-07      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
 enddate: 2023-03-10        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
-instructor: ["Giordano Lipari", "Tijs Bliek", "Max Paulus", "Fatemeh Karimi Nejadasl"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
-helper: ["Stephanie van de Sandt", "Meron Vermaas", "Eva Lekkerkerker", "Elisa Rodenburg", "Rutger Nijland"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
+enddate1: 2023-03-07        # machine-readable end date for the first part of the workshop in YYYY-MM-DD
+startdate2: 2023-03-08        # machine-readable start date for the second part of the workshop in YYYY-MM-DD
+instructor: ["Tijs Bliek", "Fatemeh Karimi Nejadasl", "Giordano Lipari", "Max Paulus"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
+helper: ["Tijs Bliek", "Fatemeh Karimi Nejadasl", "Eva Lekkerkerker", "Giordano Lipari", "Rutger Nijland", "Max Paulus", "Elisa Rodenburg", "Stephanie van de Sandt", "Meron Vermaas"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
 email: ["r.j.nijland@student.vu.nl"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
 collaborative_notes: FIXME # optional: URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document (e.g., https://pad.carpentries.org/2015-01-01-euphoria)
 eventbrite:           # optional: alphanumeric key for Eventbrite registration, e.g., "1234567890AB" (if Eventbrite is being used)
@@ -117,7 +124,7 @@ workshop is only open to people from a particular institution.
 {% endif %}
 
 {% comment %}
-LOCATION
+DOUBLE LOCATION AND DOUBLE DATE, IN PAIRS
 
 This block displays the address and links to maps showing directions
 if the latitude and longitude of the workshop have been set.  You
@@ -133,13 +140,29 @@ address.
 {% assign online = "false" %}
 {% endif %}
 {% if page.latitude and page.longitude and online == "false" %}
-<p id="where">
+<p id="wherewhen1">
   <strong>Where:</strong>
-  {{page.address}}.
+  {{page.address}}. 
   Get directions with
   <a href="//www.openstreetmap.org/?mlat={{page.latitude}}&mlon={{page.longitude}}&zoom=16">OpenStreetMap</a>
   or
   <a href="//maps.google.com/maps?q={{page.latitude}},{{page.longitude}}">Google Maps</a>.
+  <br>
+  <strong>When:</strong>
+  {{page.humandate1}}.
+  {% include workshop_calendar1.html %}
+</p>
+<p id="wherewhen2">
+  <strong>Where:</strong>
+  {{page.address2}}. 
+  Get directions with
+  <a href="//www.openstreetmap.org/?mlat={{page.latitude2}}&mlon={{page.longitude2}}&zoom=16">OpenStreetMap</a>
+  or
+  <a href="//maps.google.com/maps?q={{page.latitude2}},{{page.longitude2}}">Google Maps</a>.
+  <br>
+  <strong>When:</strong>
+  {{page.humandate2}}.
+  {% include workshop_calendar2.html %}
 </p>
 {% elsif online == "true_public" %}
 <p id="where">
@@ -156,10 +179,9 @@ address.
 {% endif %}
 
 {% comment %}
-DATE
+DATE (COMMENTED OUT)
 
 This block displays the date and links to Google Calendar.
-{% endcomment %}
 {% if page.humandate %}
 <p id="when">
   <strong>When:</strong>
@@ -167,6 +189,7 @@ This block displays the date and links to Google Calendar.
   {% include workshop_calendar.html %}
 </p>
 {% endif %}
+{% endcomment %}
 
 {% comment %}
 SPECIAL REQUIREMENTS
